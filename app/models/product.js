@@ -25,6 +25,17 @@ const product_schema = new mongoose.Schema({
         type: Schema.Types.ObjectId,
         ref: "distributor",
     },
+    Manufacturer_ID:{
+      type: Schema.Types.ObjectId,
+      ref: "manufacturer",
+  },
+  Supplier_ID :{
+    type :Schema .Types.ObjectId,
+    ref :"supplier"
+}
+
+
+  
     
 
 

@@ -21,7 +21,10 @@ const package_router = require('./routes/package.route')
 const distributor_router = require('./routes/distributor.route')
 const manufacturer_router = require('./routes/manufacturer.route')
 const role_router = require('./routes/role.route')
-app.use([supplier_router , stock_router , package_router , distributor_router , manufacturer_router , role_router]);
+const product_router= require('./routes/product.route')
+
+product_router
+app.use([supplier_router , stock_router , package_router , distributor_router , manufacturer_router , role_router, product_router]);
 
 
 

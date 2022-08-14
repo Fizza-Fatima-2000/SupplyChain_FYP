@@ -26,6 +26,10 @@ const distributor_schema = new mongoose.Schema({
         type: Schema.Types.ObjectId,
         ref: "package",
     },
+    Supplier_ID :{
+        type :Schema .Types.ObjectId,
+        ref :"supplier"
+    }
 
 }
 
