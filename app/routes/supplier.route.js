@@ -8,7 +8,7 @@ const verifyToken = require("../middleware/auth");
 supplier_router.post('/api/add_supplier' , [verifyToken,verifyAdmin] ,supplier_details);
 
 // FOR GET ALL DETAILS OF SUPPLIER
-supplier_router.get('/api/get_supplier_details' , get_supplier_details);
+supplier_router.get('/api/get_supplier_details' , [verifyToken , verifyAdmin]  , get_supplier_details);
 
 
 

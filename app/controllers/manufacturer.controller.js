@@ -99,4 +99,33 @@ const signIn = async (req, res) => {
   }
 }
 
-module.exports={ Signup , signIn} ;
+
+//for Relation
+const details_manufacturer = async (req, res)=>{
+  try {
+  
+
+       const list_details = await manufacturer.aggregate([
+         
+          
+           {$lookup: { from: "packages",
+                 localField: "Package_ID",
+                 foreignField: "_id",
+                 as: "packages"}, },
+                 { $unwind: "$packages",},
+                 
+       ])
+       
+       console.log(list_details);
+       res.send(list_details)
+   } catch (error) {
+   console.log(error);
+   }
+      
+}
+
+
+
+  
+
+module.exports={ Signup , signIn , details_manufacturer } ;

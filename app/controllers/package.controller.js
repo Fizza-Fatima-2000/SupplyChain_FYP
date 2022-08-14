@@ -39,7 +39,37 @@ const package_details  = async (req, res)=>{
 
 
 
+//for Relation
+const get_all_details = async (req, res)=>{
+   try {
+   
+
+        const adver = await package.aggregate([
+          
+           
+            {$lookup: { from: "stocks",
+                  localField: "Stock_ID",
+                  foreignField: "_id",
+                  as: "stocks"}, },
+                  { $unwind: "$stocks",},
+                  {$addFields:{Stock_category : "$stock.Stock_Category", price: "$stock.Stock_Price" }}
+        ])
+        
+        console.log(adver);
+        res.send(adver)
+    } catch (error) {
+    console.log(error);
+    }
+       
+}
 
 
-module.exports = {package_details , get_package_details};
+
+
+      
+    
+
+
+
+module.exports = {package_details , get_package_details , get_all_details};
 

@@ -7,7 +7,7 @@ const verifyToken = require("../middleware/auth");
 stock_router.post('/api/add_stock' , [verifyToken , verifyAdmin],stock_details);
 
 // FOR GET ALL DETAILS OF STOCK
-stock_router.get('/api/get_stock_details' , get_stock_details);
+stock_router.get('/api/get_stock_details', [verifyToken , verifyAdmin]  , get_stock_details);
 
 
 

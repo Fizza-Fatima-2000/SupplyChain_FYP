@@ -7,7 +7,7 @@ const verifyToken = require("../middleware/auth");
 distributor_router.post('/api/add_distributor' ,[verifyToken, verifyAdmin] ,distributor_details);
 
 // FOR GET ALL DETAILS OF DISTRIBUTOR
-distributor_router.get('/api/get_distributor_details' ,get_distributor_details);
+distributor_router.get('/api/get_distributor_details' ,  [verifyToken , verifyAdmin] ,get_distributor_details);
 
 
 
