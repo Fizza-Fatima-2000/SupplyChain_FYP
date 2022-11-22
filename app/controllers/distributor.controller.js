@@ -29,7 +29,11 @@ const distributor_details  = async (req, res)=>{
 // FOR GET PACKAGE DETAILS
  const get_distributor_details = async(req, res)=>{
     try {
+        let {page, limit} = req.query;
+        let skip = (page-1)*10
         const get_info = await distributor.find({})
+        .limit(limit).skip(skip)
+        
         console.log(get_info);
         return res.status(200).send({ response: 200, message: " All distributor Details",status: true,Data:get_info, });
         
