@@ -63,7 +63,19 @@ const get_all_details = async (req, res)=>{
        
 }
 
-
+const package_delete = async(req,res)=>{
+    try {
+        const for_delete_package = await package.delete({
+            id : req.body.id
+        }) 
+        console.log("abc" , for_delete_package);
+        return res.status(200).send({Response: 200 , message: "package deleted" , status: 200 , Data: for_delete_package})
+    } catch (error) {
+        console.log(error);
+        res.send(error)
+    }
+    
+}
 
 
       
@@ -71,5 +83,5 @@ const get_all_details = async (req, res)=>{
 
 
 
-module.exports = {package_details , get_package_details , get_all_details};
+module.exports = {package_details , get_package_details , get_all_details , package_delete};
 
