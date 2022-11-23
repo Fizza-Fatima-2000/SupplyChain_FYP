@@ -36,4 +36,32 @@ const get_order = async(req,res)=>{
         
     }
 }
-module.exports = {add_order , get_order} 
+
+ const delete_order = async(req, res)=>{
+  try {
+    const for_delete_order =await order.delete({
+      id : req.body.id
+    })
+    console.log("deleted" , for_delete_order)
+    return res.status(200).send({response :200 , message: "your order is deleted"  , status : true , Data : for_delete_order})
+  } catch (error) {
+    console.log(error);
+    res.send(error)
+    
+  }
+ 
+ }
+
+const Update_Order = async(req,res)=>{
+  try {
+    const for_update = await order.update({
+      Product_Quantity : req.body.Product_Quantity
+    })
+    return res.status(200).send({response :200 , message:"product_quantity_updated" , status:true , Data: for_update})
+  } catch (error) {
+    console.log(error);
+    return res.status(400).send({response:400 , message:"failed to update product quantity" ,status: 400})
+  }
+}
+
+module.exports = {add_order , get_order , delete_order} 

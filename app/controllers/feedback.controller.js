@@ -1,6 +1,6 @@
 const express = require('express');
 const feedback = require('../models/feedback')
-
+const helperfunction = require('../utils/helperfunction')
 //for add feedback
 const add_feedback = async(req,res)=>{
     try {
@@ -13,7 +13,7 @@ const add_feedback = async(req,res)=>{
 
         })
          const for_save_feedback = await for_feedback.save();
-         return res.status(200).send({Response : 200 , message:"Feedback" , status: true , Data: for_save_feedback })
+         return res.status(200).send({Response : 200 , message:"Feedback  " , status: true , Data: for_save_feedback })
     } catch (error) {
         res.send(error)
     }
@@ -22,7 +22,7 @@ const add_feedback = async(req,res)=>{
  const get_feedback_list = async(req,res)=>{
     try {
         const for_get_feedback = await feedback.find({})
-        return res.status(200).send({Response : 200 , message : " All feeback" , status : true , Data: get_feedback_list})
+        return res.status(200).send({Response : 200 , message : "All feeback list" , status : true , Data: get_feedback_list})
     } catch (error) {
         res.send(error)
     }
