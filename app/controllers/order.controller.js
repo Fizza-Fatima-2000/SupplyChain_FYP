@@ -64,4 +64,4 @@ const Update_Order = async(req,res)=>{
   }
 }
 
-module.exports = {add_order , get_order , delete_order} 
+module.exports = {add_order , get_order , delete_order , Update_Order} 
