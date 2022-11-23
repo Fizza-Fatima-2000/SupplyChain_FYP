@@ -29,7 +29,33 @@ const add_feedback = async(req,res)=>{
   
  }
 
+ const delete_feedback = async(req,res)=>{
+    try {
+        const for_delete_feedback = await feedback.delete({
+            id : req.body.id
+        })
+        console.log(for_delete_feedback);
+        return res.status(200).send({Response: 200 , message :"your feedback is deleted" , status: true , Data:for_delete_feedback})
+    } catch (error) {
+        console.log(error);
+        return res.stauts(400).send({Response:400 , message :"failed to deleted your feedback" , status: false})
+    }
+   
+ }
+ const update_feedback = async(req, res)=>{
+    try {
+        const for_update_feedback = await feedback.update({
+            feedback : req.body.feedback
+        })
+        console.log(for_update_feedback);
+        return res.status(200).send({Response : 200 , message: "feedback Updated" , status: true , Data:update_feedback})
+    } catch (error) {
+        console.log(error);
+        return res.status(400).send({Response: 400 , message:"failed to updated your feedback" , status : false })
+    }
+ }
 
 
 
-module.exports=  {add_feedback , get_feedback_list};
+
+module.exports=  {add_feedback , get_feedback_list , delete_feedback , update_feedback};
