@@ -1,6 +1,6 @@
 const express = require("express");
 const package_router = express.Router();
-const {package_details , get_package_details , get_all_details , package_delete , update_package} = require('../controllers/package.controller');
+const {package_details , get_package_details , get_all_details } = require('../controllers/package.controller');
 const verifyAdmin = require("../middleware/admin.auth");
 const verifyToken = require("../middleware/auth");
 // FOR ADD STOCK
@@ -12,10 +12,7 @@ package_router.get('/api/get_package_details' , [verifyToken , verifyAdmin]  , g
 
 package_router.get('/api/for_all_details' , get_all_details);
 
-package_router.delete('/api/package_delete'  , package_delete)
 
-//for update package
-package_router.patch('/api/package_update',[verifyAdmin , verifyToken] , update_package)
 
 
 

@@ -38,7 +38,16 @@ try {
     res.send(error);
 }
 }
-
+ const get_specific_supplier =async(req,res)=>{
+    try {
+        const for_specific_supplier = await supplier.find({
+            id : req.body.id
+        }) 
+    } catch (error) {
+        
+    }
+   
+ }
 
 
  module.exports = {supplier_details , get_supplier_details};

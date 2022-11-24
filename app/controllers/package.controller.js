@@ -63,39 +63,11 @@ const get_all_details = async (req, res)=>{
        
 }
 
-const package_delete = async(req,res)=>{
-    try {
-        const for_delete_package = await package.delete({
-            id : req.body.id
-        }) 
-        console.log("abc" , for_delete_package);
-        return res.status(200).send({Response: 200 , message: "package deleted" , status: 200 , Data: for_delete_package})
-    } catch (error) {
-        console.log(error);
-        res.send(error)
-    }
-    
-}
 
-const update_package = async(req,res)=>{
-    try {
-        const for_update_package = await package.update({
-            Package_Price : req.body.Package_Price,
-            Package_Category : req.body.Package_Category,
-            Stock_ID : req.body.Stock_ID
-        })
-        console.log(for_update_package);
-        return res.status(200).send({Response:200 , message: "package updated " , status :200, Data:for_update_package})
-    } catch (error) {
-        console.log(error);
-        res.send(error);
-    }
-  
-}
       
     
 
 
 
-module.exports = {package_details , get_package_details , get_all_details , package_delete , update_package };
+module.exports = {package_details , get_package_details , get_all_details };
 
