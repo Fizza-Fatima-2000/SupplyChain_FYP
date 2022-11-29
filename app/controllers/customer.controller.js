@@ -10,8 +10,8 @@ const create_customer = async(req,res)=>{
             Customer_CNIC,
             Customer_Phone,
             Package_ID,
-            Order_ID,
-            FeedBack_ID
+            // Order_ID,
+            // FeedBack_ID
     
         })
         const for_save_customer_details = await for_add_customer.save();

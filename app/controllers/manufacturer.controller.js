@@ -125,6 +125,24 @@ const details_manufacturer = async (req, res)=>{
 }
 
 
+const for_all_table = async (req,res)=>{
+  try {
+    const for_relation = await user.aggregate({
+      $lookup: { from: "packages",
+       localField: "Package_ID",
+       foreignField: "_id",
+       as: "packages"}, 
+   
+     })
+     console.log(for_all_table);
+     return res.status(200).send({response : 200 , message : "details of all table" , status : true , Data: for_relation})
+  } catch (error) {
+    console.log(error);
+    return res.status(400).send({response : 400, message : "error" , status: false , Data: null  })
+  }
+ 
+}
+
 
   
 

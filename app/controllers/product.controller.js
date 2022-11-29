@@ -36,7 +36,7 @@ try {
 
    const get_details_product = await product.find({})
    console.log(get_details_product);
-   return res.status(200).send({ response: 200, message: " All Supplier Details",status: true,Data: get_details_product, });
+   return res.status(200).send({ response: 200, message: " All Product Details",status: true,Data: get_details_product, });
 } catch (error) {
    console.log(error);
    res.send(error);

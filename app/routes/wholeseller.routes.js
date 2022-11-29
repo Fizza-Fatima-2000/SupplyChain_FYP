@@ -6,7 +6,7 @@ const wholeseller_routes = express.Router();
 wholeseller_routes.post('/api/add_wholeseller'  , add_wholeseller)
 
 //for get wholeseller
-wholeseller_routes.get('./api/get_wholeseller' ,  get_wholeseller)
+wholeseller_routes.get('/api/get_wholeseller' ,  get_wholeseller)
 
 
 
