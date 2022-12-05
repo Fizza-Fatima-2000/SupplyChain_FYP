@@ -26,9 +26,12 @@ const wholeseller_routes = require('./routes/wholeseller.routes')
 const Order_Router = require('./routes/order.route')
 const Customer_Router = require('./routes/customer.route')
 const Feedback_Router = require('./routes/feedback.route')
+//const user_Router = require('./routes/user.route')
 
 app.use([supplier_router , stock_router , package_router , distributor_router , manufacturer_router , role_router, product_router
-, wholeseller_routes , Order_Router , Customer_Router, Feedback_Router]);
+, wholeseller_routes , Order_Router , Customer_Router, Feedback_Router , 
+//user_Router
+]);
 
 
 
