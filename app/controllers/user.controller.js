@@ -1,27 +1,29 @@
-// const express = require('express');
-// const user = require('../models/user')
 
+const express = require("express");
+const user = require("../models/user");
 
-// /////''''''''''''''''''''''for create user'''''''''''''''''''''''''''//////
-// const for_create_user = async(req,res)=>{
-//     try {
-//         const {First_Name , Last_Name , Email , Phone_Number ,User_CNIC} = req.body
-//         const Password = req.body;
-//         var encryptedPassword = await bcrypt.hash(Password, 10);
-//         const for_user = await user.create({
-//             First_Name,
-//             Last_Name ,
-//             Email,
-//             Phone_Number,
-//             Password  :encryptedPassword ,
-//             User_CNIC
-//         })
-//         return res.status(200).send({ response: 200, message: " User Create",status: true,Data: for_user, });      
-//     } catch (error) {
-//         console.log(error);
-//         return res.send(error)
-//     }
- 
-// }
-
-// module.export= {for_create_user};
+const create_user = async (req, res) => {
+  try {
+    const for_create_user = await user.create({
+      User_Name: req.body.User_Name,
+      User_Email: req.body.User_Email,
+      User_Address: req.body.User_Address,
+      User_PhoneNumber: req.body.User_PhoneNumber,
+      User_Password: req.body.User_Password,
+      User_CNIC: req.body.User_CNIC,
+    });
+    console.log(for_create_user);
+    return res
+      .status(200)
+      .send({
+        response: 200,
+        message: " User_Created",
+        status: true,
+        Data: create_user,
+      });
+  } catch (error) {
+    console.log(error);
+    return error;
+  }
+};
+module.exports = {create_user}
